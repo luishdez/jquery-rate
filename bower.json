@@ -5,6 +5,8 @@
     "jquery": ">1.10.0"
   },
   "devDependencies": {
-    "bootstrap": "3.0.0"
+    "mocha": "*",
+    "chai": "*",
+    "jsdom": "*"
   }
 }
