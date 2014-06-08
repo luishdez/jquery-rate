@@ -1,6 +1,13 @@
 {
   "name": "jquery-rate",
   "version": "0.1.0",
+  "main": [
+    "jquery-rate.js"
+  ],
+  "ignore": [
+    "node_modules",
+    "components"
+  ],
   "dependencies": {
     "jquery": ">1.10.0"
   },
