@@ -9,7 +9,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  */
-(function ($) {
++(function ($) {
     var BarRating, root;
 
     root = typeof window !== "undefined" && window !== null ? window : global;
@@ -44,7 +44,7 @@
                         originalRatingValue:initialOption.val(),
                         originalRatingText:initialOption.text()
 
-                    });   
+                    });
 
                     $widget = $('<div />', { 'class':'br-widget' }).insertAfter($this);
 
@@ -74,7 +74,7 @@
                     $this.data('barrating').deselectable = (!$this.find('option:first').val()) ? true : false;
 
                     // use different jQuery function depending on the 'reverse' setting
-                    if (userOptions.reverse) {                        
+                    if (userOptions.reverse) {
                         nextAllorPreviousAll = 'nextAll';
                     } else {
                         nextAllorPreviousAll = 'prevAll';
@@ -101,7 +101,7 @@
                             $this.find('option[value="' + value + '"]').prop('selected', true);
 
                             // update .br-current-rating div
-                            if (userOptions.showSelectedRating) { 
+                            if (userOptions.showSelectedRating) {
                                 $(this).find('.br-current-rating').text(text);
                             }
 
@@ -233,7 +233,7 @@
                         $this.data('barrating').currentRatingText
                     );
                 }
-            }            
+            }
             this.destroy = function () {
                 var $this = $(this.elem);
                 var $widget = $this.next('.br-widget');
@@ -307,7 +307,7 @@
         onSelect:function (value, text) {
         }, // callback fired when a rating is selected
         onClear:function (value, text) {
-        }, // callback fired when a rating is cleared      
+        }, // callback fired when a rating is cleared
         onDestroy:function (value, text) {
         } // callback fired when a widget is destroyed
     };
