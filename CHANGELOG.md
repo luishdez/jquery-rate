@@ -1,3 +1,13 @@
+v0.1.0
+
++ Add function operator prefix to avoid concat colision
++ Set new version and git tag
++ Change name to jquery-rate
++ Add bower
++ New fork
+
+------------------------
+
 HEAD
 ----
 
