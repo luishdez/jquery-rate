@@ -1,5 +1,8 @@
-jQuery Bar Rating Plugin
+jQuery Rate Plugin
 ========================
+
+Note: This is a fork from http://antenna.io/demo/jquery-bar-rating/examples/
+as that repo seems unmantainned.
 
 Minimal, light-weight jQuery ratings.
 
@@ -20,42 +23,42 @@ npm install
 ./node_modules/mocha/bin/mocha -R spec
 
   bar rating plugin on init with custom options
-    ✓ should update defaults 
+    ✓ should update defaults
 
   bar rating plugin on show
-    ✓ should have data 
-    ✓ should transform the select field into a rating widget 
-    ✓ should store rating values in data attributes 
-    ✓ should read the selected rating from the select field 
-    ✓ should set correct class 
-    ✓ should append a rating div 
-    ✓ should display a correct rating 
-    ✓ should hide the select field 
+    ✓ should have data
+    ✓ should transform the select field into a rating widget
+    ✓ should store rating values in data attributes
+    ✓ should read the selected rating from the select field
+    ✓ should set correct class
+    ✓ should append a rating div
+    ✓ should display a correct rating
+    ✓ should hide the select field
 
   bar rating plugin on show and rating selected
-    ✓ should update data 
-    ✓ should set correct class 
-    ✓ should display a correct rating 
-    ✓ should pass correct values to a callback 
+    ✓ should update data
+    ✓ should set correct class
+    ✓ should display a correct rating
+    ✓ should pass correct values to a callback
 
   bar rating plugin reversed
-    ✓ should set correct class 
+    ✓ should set correct class
 
   bar rating plugin read-only
-    ✓ should set correct class 
-    ✓ should ignore user input 
+    ✓ should set correct class
+    ✓ should ignore user input
 
   bar rating plugin on deselect
-    ✓ should update data 
-    ✓ should successfully deselect rating 
+    ✓ should update data
+    ✓ should successfully deselect rating
 
   bar rating plugin on clear
-    ✓ should restore original rating 
-    ✓ should set correct class 
+    ✓ should restore original rating
+    ✓ should set correct class
 
   bar rating plugin on destroy
-    ✓ should remove data 
-    ✓ should show the select field back again 
+    ✓ should remove data
+    ✓ should show the select field back again
 
 
   ✔ 22 tests complete (320 ms)
