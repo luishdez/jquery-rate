@@ -302,11 +302,11 @@
         showSelectedRating: true, // append a div with a rating to the widget?
         reverse: false, // reverse the rating?
         readonly: false, // make the rating ready-only?
-        activeClass: 'active',
-        selectedClass: 'selected',
-        currentClass: 'current',
-        readonlyClass: 'readonly',
-        reverseClass: 'reverse',
+        activeClass: 'br-active',
+        selectedClass: 'br-selected',
+        currentClass: 'br-current',
+        readonlyClass: 'br-readonly',
+        reverseClass: 'br-reverse',
         onSelect: function (value, text) {}, // callback fired when a rating is selected
         onClear: function (value, text) {}, // callback fired when a rating is cleared
         onDestroy: function (value, text) {} // callback fired when a widget is destroyed
