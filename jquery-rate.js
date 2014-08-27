@@ -1,9 +1,7 @@
 /**
- * jQuery Bar Rating Plugin v1.0.4
+ * jQuery Rate v0.1.1
  *
- * http://github.com/antennaio/jquery-bar-rating
- *
- * Copyright (c) 2012-2014 Kazik Pietruszewski
+ * Original form from: http://github.com/antennaio/jquery-bar-rating
  *
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
@@ -82,11 +80,11 @@
 
                     // additional classes for the widget
                     if (userOptions.reverse) {
-                        $widget.addClass('br-reverse');
+                        $widget.addClass(userOptions.reverseClass);
                     }
 
                     if (userOptions.readonly) {
-                        $widget.addClass('br-readonly');
+                        $widget.addClass(userOptions.readonlyClass);
                     }
 
                     // rating change event
@@ -113,8 +111,8 @@
 
                             // add classes
                             $(this).find('a[data-rating-value="' + $this.data('barrating').currentRatingValue + '"]')
-                                .addClass('br-selected br-current')[nextAllorPreviousAll]()
-                                .addClass('br-selected');
+                                .addClass(userOptions.selectedClass + ' ' userOptions.currentClass)[nextAllorPreviousAll]()
+                                .addClass(userOptions.selectedClass);
 
                         }).trigger('updaterating');
 
@@ -145,21 +143,21 @@
 
                             event.preventDefault();
 
-                            $all.removeClass('br-active br-selected');
-                            $a.addClass('br-selected')[nextAllorPreviousAll]()
-                                .addClass('br-selected');
+                            $all.removeClass(userOptions.activeClass + ' ' userOptions.selectedClass);
+                            $a.addClass(userOptions.selectedClass)[nextAllorPreviousAll]()
+                                .addClass(userOptions.selectedClass);
 
                             value = $a.attr('data-rating-value');
                             text = $a.attr('data-rating-text');
 
                             // is current and deselectable?
-                            if ($a.hasClass('br-current') && $this.data('barrating').deselectable) {
-                                $a.removeClass('br-selected br-current')[nextAllorPreviousAll]()
-                                    .removeClass('br-selected br-current');
+                            if ($a.hasClass(userOptions.currentClass) && $this.data('barrating').deselectable) {
+                                $a.removeClass(userOptions.selectedClass + ' ' + userOptions.currentClass)[nextAllorPreviousAll]()
+                                    .removeClass(userOptions.selectedClass + ' ' + userOptions.currentClass);
                                 value = '', text = '';
                             } else {
-                                $all.removeClass('br-current');
-                                $a.addClass('br-current')
+                                $all.removeClass(userOptions.currentClass);
+                                $a.addClass(userOptions.currentClass)
                             }
 
                             // remember selected rating
@@ -184,9 +182,9 @@
                             mouseenter:function () {
                                 var $a = $(this);
 
-                                $all.removeClass('br-active').removeClass('br-selected');
-                                $a.addClass('br-active')[nextAllorPreviousAll]()
-                                    .addClass('br-active');
+                                $all.removeClass(userOptions.activeClass).removeClass(userOptions.selectedClass);
+                                $a.addClass(userOptions.activeClass)[nextAllorPreviousAll]()
+                                    .addClass(userOptions.activeClass);
 
                                 $widget.trigger('ratingchange',
                                     [$a.attr('data-rating-value'), $a.attr('data-rating-text')]
@@ -196,7 +194,7 @@
 
                         $widget.on({
                             mouseleave:function () {
-                                $all.removeClass('br-active');
+                                $all.removeClass(userOptions.activeClass);
                                 $widget
                                     .trigger('ratingchange')
                                     .trigger('updaterating');
@@ -216,7 +214,7 @@
                 // attempt to clear the rating
                 if ($widget && $this.data('barrating')) {
 
-                    $widget.find('a').removeClass('br-selected br-current');
+                    $widget.find('a').removeClass(userOptions.selectedClass ' ' + userOptions.currentClass);
 
                     // restore original data
                     $this.data('barrating').currentRatingValue = $this.data('barrating').originalRatingValue;
@@ -299,16 +297,18 @@
         });
     };
     return $.fn.barrating.defaults = {
-        initialRating:null, // initial rating
-        showValues:false, // display rating values on the bars?
-        showSelectedRating:true, // append a div with a rating to the widget?
-        reverse:false, // reverse the rating?
-        readonly:false, // make the rating ready-only?
-        onSelect:function (value, text) {
-        }, // callback fired when a rating is selected
-        onClear:function (value, text) {
-        }, // callback fired when a rating is cleared
-        onDestroy:function (value, text) {
-        } // callback fired when a widget is destroyed
+        initialRating: null, // initial rating
+        showValues: false, // display rating values on the bars?
+        showSelectedRating: true, // append a div with a rating to the widget?
+        reverse: false, // reverse the rating?
+        readonly: false, // make the rating ready-only?
+        activeClass: 'active',
+        selectedClass: 'selected',
+        currentClass: 'current',
+        readonlyClass: 'readonly',
+        reverseClass: 'reverse',
+        onSelect: function (value, text) {}, // callback fired when a rating is selected
+        onClear: function (value, text) {}, // callback fired when a rating is cleared
+        onDestroy: function (value, text) {} // callback fired when a widget is destroyed
     };
 })(jQuery);
